@@ -48,7 +48,7 @@ function App() {
     <>
       <div>
         <h1 className="mb-7">PASSWORD GENERATOR</h1>
-        <div className="flex justify-between w-50% h-[10vh] rounded-lg gap-2">
+        <div className="flex justify-between w-50% h-[10vh] rounded-lg gap-5 mb-5">
           <input
             type="text"
             placeholder="PASSWORD"
