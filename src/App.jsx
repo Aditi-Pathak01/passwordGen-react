@@ -1,4 +1,5 @@
-import { useCallback, useState } from "react";
+"useclient";
+import { useCallback, useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -12,12 +13,16 @@ function App() {
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     if (numAllowed) str += "0123456789";
     if (charAllowed) str += "!@#$%^&*()_+-=[]{}|;:',.<>?/";
-    for (let i = 0; i <= length; i++) {
-      let char = Math.floor(Math.random() * str.length);
-      pass += str.charAt[char];
+    for (let i = 1; i <= length; i++) {
+      let char = Math.floor(Math.random() * str.length + 1);
+      pass += str.charAt(char);
     }
     setPassword(pass);
   }, [length, numAllowed, charAllowed, setPassword]);
+
+  useEffect(() => {
+    passwordGen();
+  }, [length, numAllowed, charAllowed, passwordGen]);
 
   return (
     <>
@@ -26,8 +31,8 @@ function App() {
         <div className="flex justify-between w-50% h-[10vh] rounded-lg gap-2">
           <input
             type="text"
-            value={password}
             placeholder="PASSWORD"
+            value={password}
             className="p-5 outline-none w-full rounded-2xl text-2xl text-gray-400"
             readOnly
           />
